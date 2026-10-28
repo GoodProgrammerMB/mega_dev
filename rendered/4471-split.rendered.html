@@ -3,18 +3,18 @@
 		<link href="../../_app/immutable/assets/Callout.89E4ZsOX.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/QueueTimeline.DThQ1KGm.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/6.BjoaMlTP.css" rel="stylesheet">
-		<link rel="modulepreload" href="../../_app/immutable/entry/start.BDHaTsRK.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/dUrqt6ss.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.DFtXPmAf.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/BWZQiHIm.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/OUkhQVgo.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/ckwQM39j.js">
-		<link rel="modulepreload" href="../../_app/immutable/entry/app.CfEjx_9e.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.BXuxrCiA.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/B8TagHf_.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/BBiQsO4w.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/bUiQWyxm.js">
 		<link rel="modulepreload" href="../../_app/immutable/nodes/0.pCjtogOv.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/ZxS--dmv.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/6.PhksukYX.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/D79lRjXc.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/6.BEPI5RBJ.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/C5I2NnIS.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/CnOLKV4D.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/BDcFOay9.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/B_CPmnGU.js">
@@ -27,10 +27,10 @@ It covers the row minus the footnoted reports below.</li> <li><strong>Form hint.
 booking-v3 form prints <code>MM/DD/YYYY</code> under its date field, so people on day-first tenants type month
 first. Ticket: <a href="https://github.com/GoodProgrammerMB/mega_dev/issues/2" rel="nofollow">#2</a>.</li> <li><strong>One-day move.</strong> The footnote under the table: reports the desk read as a date moved by exactly one
 day, filed under <code>parser</code> by tenant. A swap cannot move a date by one day, so this is a third problem.
-Ticket: <a href="https://github.com/GoodProgrammerMB/mega_dev/issues/4" rel="nofollow">#4</a>.</li></ul> <p>Each ticket says how many reports it covers. The tickets count with the desk’s own view, as it was
-exported: the “tagged as” column (<code>meta.intakeTag</code>), one id one report (the export lists some reports
-twice), with the footnoted one-day reports taken out of the parser count and given to their own ticket.
-The “cause” column is what the tenant’s locale and form say; where the two disagree, the ticket says so.</p> <h2>How we told them apart</h2> <p>The cause of a report comes from <strong>where it came from</strong>, not from what intake guessed:</p> <ol><li>Which tenant sent it, and does their locale write the day first? (<code>causes.ts</code> asks the platform; no list is typed.)</li> <li>Which booking form does the tenant run, and which way does it tell people to type the date?</li> <li>Does the report describe a day and month swapped, or a date moved by exactly one day?</li></ol> <p><code>meta.intakeTag</code> is a guess from the reporter’s browser at the moment the report arrived. The “tagged as”
+Ticket: <a href="https://github.com/GoodProgrammerMB/mega_dev/issues/4" rel="nofollow">#4</a>.</li></ul> <p>Each ticket says how many reports it covers, counted as the desk exported them: every row of the
+export, so a report the export lists twice counts twice, split by the “cause” column above, with the
+footnoted one-day reports taken out of the parser count and given to their own ticket. The table above
+counts each id once, so its numbers are a little lower than the tickets’.</p> <h2>How we told them apart</h2> <p>The cause of a report comes from <strong>where it came from</strong>, not from what intake guessed:</p> <ol><li>Which tenant sent it, and does their locale write the day first? (<code>causes.ts</code> asks the platform; no list is typed.)</li> <li>Which booking form does the tenant run, and which way does it tell people to type the date?</li> <li>Does the report describe a day and month swapped, or a date moved by exactly one day?</li></ol> <p><code>meta.intakeTag</code> is a guess from the reporter’s browser at the moment the report arrived. The “tagged as”
 column counts how often it points to the wrong problem. Do not triage on it.</p> <h2>Why they were merged as one</h2> <p><a href="/kb/decisions/0001-dedupe-by-subject">Decision 0001</a> merges on the subject line alone. All three problems
 share the same few subjects (“Wrong day on the invite”, “Dates mixed up”), and a reporter’s subject says
 nothing about the tenant or the form. The decision accepted the risk that one bug ends up in several
@@ -40,15 +40,15 @@ decision is never edited, so this is a new record.</li></ul> <h2>Lessons</h2> <u
 			
 			<script>
 				{
-					__sveltekit_12zd7j2 = {
+					__sveltekit_1s86onz = {
 						base: new URL("../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../../_app/immutable/entry/start.BDHaTsRK.js"),
-						import("../../_app/immutable/entry/app.CfEjx_9e.js")
+						import("../../_app/immutable/entry/start.DFtXPmAf.js"),
+						import("../../_app/immutable/entry/app.BXuxrCiA.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 6],
