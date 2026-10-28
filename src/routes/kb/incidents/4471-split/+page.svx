@@ -8,17 +8,10 @@ signature: v1.eyJzdWIiOiIxNjIzIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYX
 ---
 
 <script>
-  import ProblemSplit from '#lib/kb/ProblemSplit.svelte';
   import CauseTable from '#lib/kb/CauseTable.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
   import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
-
-  const issues = {
-    parser: 'https://github.com/GoodProgrammerMB/mega_dev/issues/1',
-    hint: 'https://github.com/GoodProgrammerMB/mega_dev/issues/2',
-    oneDayMove: 'https://github.com/GoodProgrammerMB/mega_dev/issues/4',
-  };
 </script>
 
 The [#4471 page](/kb/incidents/4471) says: one issue, known, one fix queued. That is true for most of it
@@ -31,19 +24,23 @@ Do not close the reports in #4471 when the parser fix ships. Two other problems 
 
 ## What is in it
 
-<ProblemSplit ticket={4471} {issues} />
-
-Each problem has its own ticket in the table. The count is the number of reports that ticket covers,
-counted the way the desk counts: one id is one report (the export lists some twice), and the five
-one-day reports stay filed under parser by tenant, as the desk's own view below files them, and have
-a ticket of their own as well.
-
-## What the desk's own view shows
-
-The desk's page renders this table from the same export. It already shows two causes, not one, and
-footnotes the five one-day reports. Nobody read it against the prose above it.
+The desk's own view of the ticket, built from the export at render time, already shows it. Read the
+table against the prose on the #4471 page: two causes, not one, and a footnote with a third.
 
 <CauseTable ticket={4471} />
+
+- **Parser.** The `parser` row. The shared parser reads every date month first, so day-first tenants
+  get day and month swapped. Ticket: [#1](https://github.com/GoodProgrammerMB/mega_dev/issues/1).
+  It covers the row minus the footnoted reports below.
+- **Form hint.** The `hint` row, which the view marks "not this ticket — no ticket of its own". The
+  booking-v3 form prints `MM/DD/YYYY` under its date field, so people on day-first tenants type month
+  first. Ticket: [#2](https://github.com/GoodProgrammerMB/mega_dev/issues/2).
+- **One-day move.** The footnote under the table: reports the desk read as a date moved by exactly one
+  day, filed under `parser` by tenant. A swap cannot move a date by one day, so this is a third problem.
+  Ticket: [#4](https://github.com/GoodProgrammerMB/mega_dev/issues/4).
+
+Each ticket says how many reports it covers; the numbers come from the same view and the same export,
+one id one report (the export lists some reports twice).
 
 ## How we told them apart
 
@@ -53,8 +50,8 @@ The cause of a report comes from **where it came from**, not from what intake gu
 2. Which booking form does the tenant run, and which way does it tell people to type the date?
 3. Does the report describe a day and month swapped, or a date moved by exactly one day?
 
-`meta.intakeTag` is a guess from the reporter's browser at the moment the report arrived. The table
-counts how often it points to the wrong problem. Do not triage on it.
+`meta.intakeTag` is a guess from the reporter's browser at the moment the report arrived. The "tagged as"
+column counts how often it points to the wrong problem. Do not triage on it.
 
 ## Why they were merged as one
 

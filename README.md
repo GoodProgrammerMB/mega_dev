@@ -2,16 +2,13 @@
 
 Tickets: three Issues, one per problem found inside support ticket #4471 (412 reports; the export lists 15 of them twice, one id is one report).
 
-Counts are the desk's own counts (`CauseTable` over the export): cause from the tenant, one id one report. The five one-day reports are filed under parser by tenant in the desk's view and footnoted there, so they are inside #1's count and have #4 of their own.
-
 | Issue | Problem | Reports |
 |---|---|---|
-| [#1](../../issues/1) | Shared parser reads day-first dates month first | 379 (374 swaps + the 5 one-day reports the desk files here) |
+| [#1](../../issues/1) | Shared parser reads day-first dates month first | 374 |
 | [#2](../../issues/2) | booking-v3 form hint says `MM/DD/YYYY` to day-first tenants | 33 |
 | [#4](../../issues/4) | Date shifted by exactly one day (not a swap) | 5 |
 
 Page added to the support kb:
 
-- `src/routes/kb/incidents/4471-split/+page.svx` — the page (signed with the course ticket).
-- `src/lib/kb/ProblemSplit.svelte` — the component that computes the counts from `reports-4471.json`.
+- `src/routes/kb/incidents/4471-split/+page.svx` — the page (signed with the course ticket). It uses only the kb's own components, as exported: the desk's `CauseTable` counts the reports at render time.
 - `rendered/4471-split.html` — the page as the desk sees it (static copy, no scripts).
