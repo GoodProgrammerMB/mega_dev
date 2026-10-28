@@ -4,11 +4,12 @@ title: '#4471 is three problems, not one'
 owner: support desk
 status: open
 reviewed: 2026-10-28
-signature: v1.eyJzdWIiOiIxNjIzIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMDUyODcsImV4cCI6MTc5MzI5MTY4N30.md9LF2Dw3oNfZtaZX3tVJ6-uM-1-sX0FO6_CAqXiOM0
+signature: v1.eyJzdWIiOiIxNjIzIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMDY1NTAsImV4cCI6MTc5MzI5Mjk1MH0.rKc97RGpAgQhkyMT32dSKDeJ1tIUFl-wk3fD7xH8Qts
 ---
 
 <script>
   import ProblemSplit from '#lib/kb/ProblemSplit.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
   import Callout from '#lib/kb/Callout.svelte';
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
   import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
@@ -32,7 +33,17 @@ Do not close the reports in #4471 when the parser fix ships. Two other problems 
 
 <ProblemSplit ticket={4471} {issues} />
 
-Each problem has its own ticket in the table. The count is the number of reports that ticket covers.
+Each problem has its own ticket in the table. The count is the number of reports that ticket covers,
+counted the way the desk counts: one id is one report (the export lists some twice), and the five
+one-day reports stay filed under parser by tenant, as the desk's own view below files them, and have
+a ticket of their own as well.
+
+## What the desk's own view shows
+
+The desk's page renders this table from the same export. It already shows two causes, not one, and
+footnotes the five one-day reports. Nobody read it against the prose above it.
+
+<CauseTable ticket={4471} />
 
 ## How we told them apart
 
@@ -72,5 +83,6 @@ tenant and the channel first.
 - A big ticket is often several bugs reported many times. Count each cause once, not the ticket once.
 - When the cause comes from tenant data, the tag from intake cannot be the source of truth.
 - A small group hidden in a big ticket stays "known" until someone splits it. Five reports are worth a ticket.
+- Read the tables on a page against its prose. The desk's own table showed two causes under "one issue".
 
 <RenderStamp {signature} />
