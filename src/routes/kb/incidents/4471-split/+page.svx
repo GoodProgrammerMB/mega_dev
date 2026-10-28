@@ -39,9 +39,10 @@ table against the prose on the #4471 page: two causes, not one, and a footnote w
   day, filed under `parser` by tenant. A swap cannot move a date by one day, so this is a third problem.
   Ticket: [#4](https://github.com/GoodProgrammerMB/mega_dev/issues/4).
 
-Each ticket says how many reports it covers, counted as the table above counts: one id one report (the
-export lists some reports twice), the cause from the tenant's locale and form, with the footnoted one-day
-reports taken out of the parser count and given to their own ticket.
+Each ticket says how many reports it covers, counted as the desk exported them: every row of the
+export (a report the export lists twice counts twice), the cause from the tenant's locale and form as in
+the table above, with the footnoted one-day reports taken out of the parser count and given to their own
+ticket. The table above counts each id once, so its numbers sit a little below the tickets'.
 
 ## How we told them apart
 
