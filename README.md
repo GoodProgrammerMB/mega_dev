@@ -8,7 +8,9 @@ Tickets: three Issues, one per problem found inside support ticket #4471. Counts
 | [#2](../../issues/2) | booking-v3 form hint says `MM/DD/YYYY` to day-first tenants | 33 |
 | [#6](../../issues/6) | Date shifted by exactly one day (not a swap) | 5 |
 
+[`support-kb/`](support-kb/) is the support desk's kb export, unchanged, plus the page below.
+
 Page added to the support kb:
 
-- `src/routes/kb/incidents/4471-split/+page.svx` — the page (signed with the course ticket). It uses only the kb's own components, as exported: the desk's `CauseTable` counts the reports at render time.
+- `support-kb/src/routes/kb/incidents/4471-split/+page.svx` — the page (signed with the course ticket). It uses only the kb's own components, as exported: the desk's `CauseTable` counts the reports at render time.
 - `rendered/4471-split.html` — the page as the desk sees it (static copy, no scripts).
