@@ -1,12 +1,13 @@
 # MEGA.dev work (S01E03 "what it shows")
 
-Tickets: three Issues, one per problem found inside support ticket #4471 (412 reports).
+Tickets: two Issues, one per problem found inside support ticket #4471 (412 reports, counted as the desk counts them).
 
 | Issue | Problem | Reports |
 |---|---|---|
-| [#1](../../issues/1) | Shared parser reads day-first dates month first | 374 |
+| [#1](../../issues/1) | Shared parser reads day-first dates month first (5 of these read as a one-day move and need a time-zone check) | 379 |
 | [#2](../../issues/2) | booking-v3 form hint says `MM/DD/YYYY` to day-first tenants | 33 |
-| [#3](../../issues/3) | Date shifted by exactly one day (not a swap) | 5 |
+
+#3 was folded into #1 and closed.
 
 Page added to the support kb:
 
