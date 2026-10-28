@@ -30,14 +30,14 @@ table against the prose on the #4471 page: two causes, not one, and a footnote w
 <CauseTable ticket={4471} />
 
 - **Parser.** The `parser` row. The shared parser reads every date month first, so day-first tenants
-  get day and month swapped. Ticket: [#1](https://github.com/GoodProgrammerMB/mega_dev/issues/1).
+  get day and month swapped. Ticket: [#7](https://github.com/GoodProgrammerMB/mega_dev/issues/7).
   It covers the row minus the footnoted reports below.
 - **Form hint.** The `hint` row, which the view marks "not this ticket — no ticket of its own". The
   booking-v3 form prints `MM/DD/YYYY` under its date field, so people on day-first tenants type month
-  first. Ticket: [#2](https://github.com/GoodProgrammerMB/mega_dev/issues/2).
+  first. Ticket: [#8](https://github.com/GoodProgrammerMB/mega_dev/issues/8).
 - **One-day move.** The footnote under the table: reports the desk read as a date moved by exactly one
   day, filed under `parser` by tenant. A swap cannot move a date by one day, so this is a third problem.
-  Ticket: [#6](https://github.com/GoodProgrammerMB/mega_dev/issues/6).
+  Ticket: [#9](https://github.com/GoodProgrammerMB/mega_dev/issues/9).
 
 Each ticket says how many reports it covers, counted as the table above counts: one id one report (the
 export lists some reports twice), the cause from the tenant's locale and form, with the footnoted one-day

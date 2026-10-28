@@ -4,9 +4,9 @@ Tickets: three Issues, one per problem found inside support ticket #4471. Counts
 
 | Issue | Problem | Reports |
 |---|---|---|
-| [#1](../../issues/1) | Shared parser reads day-first dates month first | 374 |
-| [#2](../../issues/2) | booking-v3 form hint says `MM/DD/YYYY` to day-first tenants | 33 |
-| [#6](../../issues/6) | Date shifted by exactly one day (not a swap) | 5 |
+| [#7](../../issues/7) | Shared parser reads day-first dates month first | 374 |
+| [#8](../../issues/8) | booking-v3 form hint says `MM/DD/YYYY` to day-first tenants | 33 |
+| [#9](../../issues/9) | Date shifted by exactly one day (not a swap) | 5 |
 
 [`support-kb/`](support-kb/) is the support desk's kb export, unchanged, plus the page below.
 
