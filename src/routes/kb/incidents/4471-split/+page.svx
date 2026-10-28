@@ -37,7 +37,7 @@ table against the prose on the #4471 page: two causes, not one, and a footnote w
   first. Ticket: [#2](https://github.com/GoodProgrammerMB/mega_dev/issues/2).
 - **One-day move.** The footnote under the table: reports the desk read as a date moved by exactly one
   day, filed under `parser` by tenant. A swap cannot move a date by one day, so this is a third problem.
-  Ticket: [#4](https://github.com/GoodProgrammerMB/mega_dev/issues/5).
+  Ticket: [#5](https://github.com/GoodProgrammerMB/mega_dev/issues/5).
 
 Each ticket says how many reports it covers, counted as the table above counts: one id one report (the
 export lists some reports twice), the cause from the tenant's locale and form, with the footnoted one-day

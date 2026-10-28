@@ -6,7 +6,7 @@ Tickets: three Issues, one per problem found inside support ticket #4471. Counts
 |---|---|---|
 | [#1](../../issues/1) | Shared parser reads day-first dates month first | 374 |
 | [#2](../../issues/2) | booking-v3 form hint says `MM/DD/YYYY` to day-first tenants | 33 |
-| [#4](../../issues/5) | Date shifted by exactly one day (not a swap) | 5 |
+| [#5](../../issues/5) | Date shifted by exactly one day (not a swap) | 5 |
 
 Page added to the support kb:
 
