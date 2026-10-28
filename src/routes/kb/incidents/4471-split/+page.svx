@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 is two problems, not one'
+title: '#4471 is three problems, not one'
 owner: support desk
 status: open
 reviewed: 2026-10-28
@@ -15,32 +15,33 @@ signature: v1.eyJzdWIiOiIxNjIzIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYX
 </script>
 
 The [#4471 page](/kb/incidents/4471) says: one issue, known, one fix queued. That is true for most of it
-and wrong for the rest. The reports in #4471 hold **two different problems**. One fix closes the first
-one; the other would stay open, marked known, with nobody looking at it.
+and wrong for the rest. The reports in #4471 hold **three different problems**. One fix closes the first
+one; the other two would stay open, marked known, with nobody looking at them.
 
 <Callout kind="warn">
-Do not close the reports in #4471 when the parser fix ships. A second problem is inside it.
+Do not close the reports in #4471 when the parser fix ships. Two other problems are inside it.
 </Callout>
 
 ## What is in it
 
 The desk's own view of the ticket, built from the export at render time, already shows it. Read the
-table against the prose on the #4471 page: two causes, not one.
+table against the prose on the #4471 page: two causes, not one, and a footnote with a third.
 
 <CauseTable ticket={4471} />
 
 - **Parser.** The `parser` row. The shared parser reads every date month first, so day-first tenants
   get day and month swapped. Ticket: [#1](https://github.com/GoodProgrammerMB/mega_dev/issues/1).
-  The footnote under the table names the reports the desk read as a date moved by exactly one day;
-  they are filed in this row by tenant; the ticket leaves them out of its count, because a swap cannot
-  move a date by one day, and asks for a time-zone check on them before #4471 is closed.
+  It covers the row minus the footnoted reports below.
 - **Form hint.** The `hint` row, which the view marks "not this ticket — no ticket of its own". The
   booking-v3 form prints `MM/DD/YYYY` under its date field, so people on day-first tenants type month
   first. Ticket: [#2](https://github.com/GoodProgrammerMB/mega_dev/issues/2).
+- **One-day move.** The footnote under the table: reports the desk read as a date moved by exactly one
+  day, filed under `parser` by tenant. A swap cannot move a date by one day, so this is a third problem.
+  Ticket: [#6](https://github.com/GoodProgrammerMB/mega_dev/issues/6).
 
 Each ticket says how many reports it covers, counted as the table above counts: one id one report (the
 export lists some reports twice), the cause from the tenant's locale and form, with the footnoted one-day
-reports left out of the parser count.
+reports taken out of the parser count and given to their own ticket.
 
 ## How we told them apart
 
@@ -48,16 +49,17 @@ The cause of a report comes from **where it came from**, not from what intake gu
 
 1. Which tenant sent it, and does their locale write the day first? (`causes.ts` asks the platform; no list is typed.)
 2. Which booking form does the tenant run, and which way does it tell people to type the date?
+3. Does the report describe a day and month swapped, or a date moved by exactly one day?
 
 `meta.intakeTag` is a guess from the reporter's browser at the moment the report arrived. The "tagged as"
 column counts how often it points to the wrong problem. Do not triage on it.
 
 ## Why they were merged as one
 
-[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on the subject line alone. Both problems
+[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on the subject line alone. All three problems
 share the same few subjects ("Wrong day on the invite", "Dates mixed up"), and a reporter's subject says
 nothing about the tenant or the form. The decision accepted the risk that one bug ends up in several
-tickets. Here it did the opposite: **one ticket for two bugs**, which is harder to see.
+tickets. Here it did the opposite: **one ticket for three bugs**, which is harder to see.
 
 Triage in [duplicates](/kb/triage/dedupe) tells the desk to merge when unsure. For a flipped date, read the
 tenant and the channel first.
@@ -70,7 +72,7 @@ tenant and the channel first.
 
 - Fix the parser to read dates in the tenant's locale, and close only the parser ticket.
 - Change the booking-v3 hint to the tenant's order, or replace it with a date picker.
-- Before closing the parser ticket, reproduce the footnoted one-day shift near midnight in a time zone ahead of UTC.
+- Reproduce the one-day shift near midnight in a time zone ahead of UTC. Do not assume it is the parser.
 - Replace decision 0001 with a record that takes the tenant and channel into account. An accepted
   decision is never edited, so this is a new record.
 
@@ -78,6 +80,7 @@ tenant and the channel first.
 
 - A big ticket is often several bugs reported many times. Count each cause once, not the ticket once.
 - When the cause comes from tenant data, the tag from intake cannot be the source of truth.
+- A small group hidden in a big ticket stays "known" until someone splits it. Five reports are worth a ticket.
 - Read the tables on a page against its prose. The desk's own table showed two causes under "one issue".
 
 <RenderStamp {signature} />

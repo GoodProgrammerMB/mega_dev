@@ -1,11 +1,12 @@
 # MEGA.dev work (S01E03 "what it shows")
 
-Tickets: two Issues, one per problem found inside support ticket #4471, counted as the desk's own view (`CauseTable`) counts: one id one report (the export lists 15 reports twice), cause from the tenant's locale and booking form (`causes.ts`). The five reports the desk reads as a one-day move (its footnote) are left out of the parser count and have no ticket of their own; #1 asks for their check.
+Tickets: three Issues, one per problem found inside support ticket #4471. Counts: one id one report (the export lists 15 reports twice), cause from the tenant's locale and booking form (`causes.ts`), the five one-day reports from `desk-notes.json` in a ticket of their own.
 
 | Issue | Problem | Reports |
 |---|---|---|
 | [#1](../../issues/1) | Shared parser reads day-first dates month first | 374 |
 | [#2](../../issues/2) | booking-v3 form hint says `MM/DD/YYYY` to day-first tenants | 33 |
+| [#6](../../issues/6) | Date shifted by exactly one day (not a swap) | 5 |
 
 Page added to the support kb:
 
