@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 is three problems, not one'
+title: '#4471 is two problems, not one'
 owner: support desk
 status: open
 reviewed: 2026-10-28
@@ -16,16 +16,15 @@ signature: v1.eyJzdWIiOiIxNjIzIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYX
   const issues = {
     parser: 'https://github.com/GoodProgrammerMB/mega_dev/issues/1',
     hint: 'https://github.com/GoodProgrammerMB/mega_dev/issues/2',
-    oneDayMove: 'https://github.com/GoodProgrammerMB/mega_dev/issues/4',
   };
 </script>
 
 The [#4471 page](/kb/incidents/4471) says: one issue, known, one fix queued. That is true for most of it
-and wrong for the rest. The reports in #4471 hold **three different problems**. One fix closes the first
-one; the other two would stay open, marked known, with nobody looking at them.
+and wrong for the rest. The reports in #4471 hold **two different problems**. One fix closes the first
+one; the other would stay open, marked known, with nobody looking at them.
 
 <Callout kind="warn">
-Do not close the reports in #4471 when the parser fix ships. Two other problems are inside it.
+Do not close the reports in #4471 when the parser fix ships. A second problem is inside it.
 </Callout>
 
 ## What is in it
@@ -40,17 +39,16 @@ The cause of a report comes from **where it came from**, not from what intake gu
 
 1. Which tenant sent it, and does their locale write the day first? (`causes.ts` asks the platform; no list is typed.)
 2. Which booking form does the tenant run, and which way does it tell people to type the date?
-3. Does the report describe a day and month swapped, or a date moved by exactly one day?
 
 `meta.intakeTag` is a guess from the reporter's browser at the moment the report arrived. The table
 counts how often it points to the wrong problem. Do not triage on it.
 
 ## Why they were merged as one
 
-[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on the subject line alone. All three problems
+[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on the subject line alone. Both problems
 share the same few subjects ("Wrong day on the invite", "Dates mixed up"), and a reporter's subject says
 nothing about the tenant or the form. The decision accepted the risk that one bug ends up in several
-tickets. Here it did the opposite: **one ticket for three bugs**, which is harder to see.
+tickets. Here it did the opposite: **one ticket for two bugs**, which is harder to see.
 
 Triage in [duplicates](/kb/triage/dedupe) tells the desk to merge when unsure. For a flipped date, read the
 tenant and the channel first.
@@ -63,7 +61,7 @@ tenant and the channel first.
 
 - Fix the parser to read dates in the tenant's locale, and close only the parser ticket.
 - Change the booking-v3 hint to the tenant's order, or replace it with a date picker.
-- Reproduce the one-day shift near midnight in a time zone ahead of UTC. Do not assume it is the parser.
+- Check the reports that read as a one-day move (see the note under the table) in a time zone ahead of UTC before you call them the parser.
 - Replace decision 0001 with a record that takes the tenant and channel into account. An accepted
   decision is never edited, so this is a new record.
 
@@ -71,6 +69,6 @@ tenant and the channel first.
 
 - A big ticket is often several bugs reported many times. Count each cause once, not the ticket once.
 - When the cause comes from tenant data, the tag from intake cannot be the source of truth.
-- A small group hidden in a big ticket stays "known" until someone splits it. Five reports are worth a ticket.
+- A small group hidden in a big ticket stays "known" until someone splits it. Read the odd ones.
 
 <RenderStamp {signature} />
